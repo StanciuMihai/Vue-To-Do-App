@@ -47,7 +47,7 @@ const saveTransaction = (item) => {
       <input 
         v-else 
         v-model="item.value"
-        class="input-hide"
+        class="input-modify"
         @blur="saveTransaction(item)"
         @keyup.enter="saveTransaction(item)"
         type="text"

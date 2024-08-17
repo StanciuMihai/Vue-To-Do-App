@@ -23,7 +23,13 @@
         isChecked: false
     },
     ]);
+    onMounted(()=>{
+  const savedTransactions=JSON.parse(localStorage.getItem('ToDoAppData'));
 
+  if(savedTransactions){
+    fillerList.value = savedTransactions;
+  }
+});
     const handleTransactionSubmitted = (transactionData) => {
     
     fillerList.value.push({
@@ -32,7 +38,7 @@
       isChecked: false
     });
 
-   // saveTransactionsToLocalStorage();
+    saveTransactionsToLocalStorage();
 
     toast.success('To do added');
   };
@@ -41,22 +47,21 @@
     fillerList.value=fillerList.value.filter((transaction)=>
     transaction.id !==id)
 
-    //saveTransactionsToLocalStorage();
+    saveTransactionsToLocalStorage();
 
     toast.success('To do deleted');
   };
 
   const handleTransactionModified = (id,value,isChecked) => {
-    fillerList.value=fillerList.value.filter((transaction)=>
-    transaction.id !==id)
+    const index = fillerList.value.findIndex((transaction) => transaction.id === id);
 
-    fillerList.value.unshift({
-      id: id,
-      value: value,
-      isChecked: isChecked
-    });
+    // If the transaction is found, update its properties
+    if (index !== -1) {
+      fillerList.value[index].value = value;
+      fillerList.value[index].isChecked = isChecked;
+}
 
-    //saveTransactionsToLocalStorage();
+    saveTransactionsToLocalStorage();
 
     toast.success('To do updated');
   };
@@ -64,9 +69,9 @@
   const generateUniqueId =() => {
     return Math.floor(Math.random()* 1000000)
   }
-  // const saveTransactionsToLocalStorage=()=>{
-  //   localStorage.setItem('transactions',JSON.stringify(transactions.value));
-  // }
+  const saveTransactionsToLocalStorage=()=>{
+    localStorage.setItem('ToDoAppData',JSON.stringify(fillerList.value));
+  }
 </script>
 
 <template>

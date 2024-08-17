@@ -169,7 +169,8 @@ a,
   text-decoration: line-through;
 }
 
-.input-hide {
+.input-modify {
   display: block;
   width: 100%;
+  font-size: 1em;
 }
