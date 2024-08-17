@@ -6,9 +6,20 @@ const props =defineProps({
   }
  });
    
+const emit = defineEmits(['transactionDeleted']);
+
+const deleteTransaction = (id) => {
+ emit('transactionDeleted', id)
+}
 </script>
 <template>
-    <div class="ListItem" v-for="item in fillerList">
-        <input class="checkbox" type="checkbox"> {{ item.value }} 
-    </div>
+    <ul  class="list">
+      <span v-for="item in fillerList" :key="fillerList.id">
+    <li class="ListItem" >
+        <input class="checkbox" type="checkbox">
+         {{ item.value }} 
+         <button @click="deleteTransaction(item.id)" class="delete-btn"><i class="pi pi-times-circle"></i></button>
+    </li>
+      </span>
+    </ul>
 </template>

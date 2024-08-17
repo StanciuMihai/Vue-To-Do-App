@@ -31,7 +31,7 @@ const toast=useToast();
 
 <template>
      <form id="form" @submit.prevent="onSubmit">
-        <input type="text" id="text" v-model="text" placeholder="Add something to do..." />
+        <input type="text" id="text" v-model="text" placeholder="Add something to do..." autocomplete="off" />
         <button class="btn">Add</button>
      </form>
 </template>

@@ -38,7 +38,7 @@
   };
 
   const handleTransactionDeleted = (id) => {
-    transactions.value=transactions.value.filter((transaction)=>
+    fillerList.value=fillerList.value.filter((transaction)=>
     transaction.id !==id)
 
     //saveTransactionsToLocalStorage();
@@ -57,7 +57,7 @@
 <template>
   <Header />
   <AddItem @transaction-submitted="handleTransactionSubmitted"/>
-  <ListElements :fillerList="fillerList"/>
+  <ListElements :fillerList="fillerList"  @transaction-deleted="handleTransactionDeleted"/>
 </template>
 
 <style scoped>

@@ -48,17 +48,28 @@ a,
   border-style: solid;
   border-radius: 1em;
   padding: 0.5em 0.5em 0.5em 0.5em;
+  
   /* border-right-color:crimson; */
   /* border-right-width: 0.5em; */
   /* border-left-color:darkorange; */
   /* border-left-width: 0.5em; */
 }
+
+.list {
+  list-style-type: none;
+ 
+}
+
 .btn{
   font-size: 3em;
   margin-top: 0.3em;
   border-style: solid;
   border-radius: 1em;
   padding: 0.5em 0.5em 0.5em 0.5em;
+  margin-left: 0.1em;
+}
+.btn:hover{
+  background-color: hsla(160, 100%, 37%, 0.2);
 }
 .ListItem{
   font-size: 3em;
@@ -66,14 +77,46 @@ a,
   border-style: solid;
   border-radius: 1em;
   padding: 0.5em 0.5em 0.5em 0.5em;
-  border-right-color:crimson;
+  /* border-right-color:crimson; */
   border-right-width: 0.5em;
-  border-left-color:darkorange;
+  /* border-left-color:darkorange; */
   border-left-width: 0.5em;
+  margin-left: -1em;
 }
 
 .checkbox{
   width:3em;
   height:3em;
   accent-color: #9b59b6;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: hsla(160, 100%, 37%, 0);
+  border: 0;
+  color: red;
+  font-size: 1em;
+  /* line-height: 40px; */
+  /* padding: 2px 5px; */
+   /* position: absolute; */
+  /* top: 50%; */
+  /* left: 0;  */
+  /* transform: translate(-100%, -50%); */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+}
+
+#del{
+  max-width: 2em;
+  max-height: 2em;
+  
 }
