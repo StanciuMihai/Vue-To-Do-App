@@ -46,6 +46,21 @@
     toast.success('To do deleted');
   };
 
+  const handleTransactionModified = (id,value,isChecked) => {
+    fillerList.value=fillerList.value.filter((transaction)=>
+    transaction.id !==id)
+
+    fillerList.value.unshift({
+      id: id,
+      value: value,
+      isChecked: isChecked
+    });
+
+    //saveTransactionsToLocalStorage();
+
+    toast.success('To do updated');
+  };
+
   const generateUniqueId =() => {
     return Math.floor(Math.random()* 1000000)
   }
@@ -57,7 +72,7 @@
 <template>
   <Header />
   <AddItem @transaction-submitted="handleTransactionSubmitted"/>
-  <ListElements :fillerList="fillerList"  @transaction-deleted="handleTransactionDeleted"/>
+  <ListElements :fillerList="fillerList"  @transaction-deleted="handleTransactionDeleted" @transactionModified="handleTransactionModified"/>
 </template>
 
 <style scoped>
