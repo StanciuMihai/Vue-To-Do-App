@@ -26,6 +26,10 @@ a,
     display: flex;
     flex-direction: column;
     place-items: center;
+  
+    background-color: #f4f4f9;
+      
+    
     
   }
 
@@ -91,6 +95,7 @@ a,
   width:3em;
   height:3em;
   accent-color:rgba(0, 128, 0, 0.477);
+  margin-right: 1em;
 }
 
 .btn:focus,
