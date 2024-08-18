@@ -138,10 +138,30 @@ a,
   
 }
 
+.arrow-btn {
+  cursor: pointer;
+  background-color: hsla(160, 100%, 37%, 0);
+  border: 0;
+  color: rgb(135, 145, 250);
+  font-size: 1em;
+  /* line-height: 40px; */
+  /* padding: 2px 5px; */
+   /* position: absolute; */
+  /* top: 50%; */
+  /* left: 0;  */
+  /* transform: translate(-100%, -50%); */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+}
+
 .list li:hover .delete-btn {
   opacity: 1;
 }
 .list li:hover .modify-btn {
+  opacity: 1;
+}
+.list li:hover .arrow-btn {
   opacity: 1;
 }
 
@@ -155,6 +175,7 @@ a,
   display:flex;
   justify-content: flex-end;
 }
+
 
 .input-show{
   font-size: 1em;

@@ -66,6 +66,38 @@
     toast.success('To do updated');
   };
 
+  const handleTransactionMovedDown = (id) => {
+  const index = fillerList.value.findIndex((transaction) => transaction.id === id);
+
+  // Check if the item is not the last one in the array
+  if (index < fillerList.value.length - 1) {
+    // Swap the current item with the item to its right
+    [fillerList.value[index], fillerList.value[index + 1]] = [fillerList.value[index + 1], fillerList.value[index]];
+
+    saveTransactionsToLocalStorage();
+
+    toast.success('To do moved down');
+  } else {
+    toast.error('Cannot move down. Already at the bottom.');
+  }
+};
+
+  const handleTransactionMovedUp = (id) => {
+  const index = fillerList.value.findIndex((transaction) => transaction.id === id);
+
+  // Ensure the item is not the first one in the array
+  if (index > 0) {
+    // Swap the current item with the item to its left
+    [fillerList.value[index - 1], fillerList.value[index]] = [fillerList.value[index], fillerList.value[index - 1]];
+
+    saveTransactionsToLocalStorage();
+
+    toast.success('To do moved up');
+  } else {
+    toast.error('Cannot move up. Already at the top.');
+  }
+};
+
   const generateUniqueId =() => {
     return Math.floor(Math.random()* 1000000)
   }
@@ -77,7 +109,11 @@
 <template>
   <Header />
   <AddItem @transaction-submitted="handleTransactionSubmitted"/>
-  <ListElements :fillerList="fillerList"  @transaction-deleted="handleTransactionDeleted" @transactionModified="handleTransactionModified"/>
+  <ListElements :fillerList="fillerList"  
+                @transaction-deleted="handleTransactionDeleted" 
+                @transactionModified="handleTransactionModified"
+                @transactionMovedDown="handleTransactionMovedDown"
+                @transactionMovedUp="handleTransactionMovedUp"/>
 </template>
 
 <style scoped>

@@ -8,7 +8,7 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(['transactionDeleted', 'transactionModified']);
+const emit = defineEmits(['transactionDeleted', 'transactionModified','transactionMovedDown','transactionMovedUp']);
 
 // Function to delete the transaction
 const deleteTransaction = (id) => {
@@ -25,6 +25,14 @@ const saveTransaction = (item) => {
   item.isEditing = false;
   emit('transactionModified', item.id, item.value,item.isChecked);
   
+}
+
+const moveDownTransaction = (id) => {
+  emit('transactionMovedDown', id);
+}
+
+const moveUpTransaction = (id) => {
+  emit('transactionMovedUp', id);
 }
 
 </script>
@@ -53,6 +61,13 @@ const saveTransaction = (item) => {
         type="text"
       />
       <div class="buttons-div">
+        <button @click="moveDownTransaction(item.id)" class="arrow-btn">
+          <i class="pi pi-arrow-circle-down"></i>
+        </button>
+        <button @click="moveUpTransaction(item.id)" class="arrow-btn">
+          <i class="pi pi-arrow-circle-up"></i>
+        </button>
+
         <button @click="modifyTransaction(item)" class="modify-btn">
           <i class="pi pi-pen-to-square"></i>
         </button>
