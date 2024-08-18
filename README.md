@@ -1,6 +1,6 @@
-# To Do app
+# To Do app with Vue 3
 
-A simple and intuitive Todo App built with Vue 3, allowing users to manage their tasks efficiently. Features include adding, modifying, and deleting tasks, along with the ability to mark tasks as completed with a strikethrough effect. The app utilizes the Composition API for a clean and modern code structure. Ideal for those looking to organize their daily tasks or as a project to explore Vue 3's capabilities.
+This is a simple and intuitive Todo App built with Vue 3 using the Composition API. The app allows users to add, modify, delete, and reorder tasks efficiently. User interactions are enhanced with real-time feedback using Vue Toastification. Tasks are stored in localStorage, ensuring data persistence across sessions. The app features a clean and responsive UI, making task management straightforward and user-friendly. Ideal for those looking to organize their daily tasks or as a project to explore Vue 3's capabilities.
 
 ![alt text](https://raw.githubusercontent.com/StanciuMihai/Vue-To-Do-App/main/src/assets/ToDo_overview.PNG)
 
